@@ -34,10 +34,10 @@ while true; do
 		LUMINANCE=$( grab_luminance `echo "$CURRENT_COLOR" | sed 's/[rgb(,)]//g'` )
 		testCurrentColor "$CURRENT_COLOR" "$LUMINANCE"
 		if [ "$1" == "-v" ]; then
-			tee -a "$HOME/.dynamic-panel/log" <<< "[`date +%T`] $CURRENT_COLOR: applying $STYLE theme for luminance $LUMINANCE."
+			tee -a "dynamic-panel.log" <<< "[`date +%T`] $CURRENT_COLOR: applying $STYLE theme for luminance $LUMINANCE."
 		fi
 	fi
 	LAST_COLOR="$CURRENT_COLOR"
-	trap 'rm -rf "$THEME/Dynamic-*"; gsettings set org.gnome.shell.extensions.user-theme name "$( basename "$THEME" )" && tee -a "$HOME/.dynamic-panel/log" <<< "[`date +%T`] reversed to the original theme." && exit' 2
+	trap 'rm -rf "$THEME/Dynamic-*"; gsettings set org.gnome.shell.extensions.user-theme name "$( basename "$THEME" )" && tee -a "dynamic-panel.log" <<< "[`date +%T`] reversed to the original theme." && exit' 2
 	sleep 0.1
 done
