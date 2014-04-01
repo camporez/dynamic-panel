@@ -1,3 +1,11 @@
+#How it works
+- The script starts a loop, calling the `grab_pix_color` program to grab the color below the panel;
+- If this color changes, the script grabs the [luminance][2], using the program `grab_luminance`, generates and apply a new theme.
+
+#How it should work
+- The script receives a signal when the window in focus is maximized, grab the color and generates/applies a new theme.
+- If the window in focus is not maximized, the script applies the default theme.
+
 #Install
 
 - Clone this repository to your machine.
