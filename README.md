@@ -24,7 +24,11 @@ $ cp -r Dynamic $HOME/.local/share/themes
 #Run
 
 ```
-$ bash dynamic-panel.sh
+$ ./dynamic-panel.sh
+```
+or
+```
+$ ./dynamic-panel.sh -v
 ```
 
 [1]: https://extensions.gnome.org/extension/19/user-themes/
