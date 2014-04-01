@@ -38,6 +38,6 @@ while true; do
 		fi
 	fi
 	LAST_COLOR="$CURRENT_COLOR"
-	trap 'rm -rf "$THEME/Dynamic-*"; gsettings set org.gnome.shell.extensions.user-theme name "$( basename "$THEME" )" && tee -a "dynamic-panel.log" <<< "[`date +%T`] reversed to the original theme." && exit' 2
+	trap 'rm -rf "$THEME/Dynamic-*"; gsettings set org.gnome.shell.extensions.user-theme name "$( basename "$THEME" )" && if [ "$1" == "-v" ]; then tee -a "dynamic-panel.log" <<< "[`date +%T`] reversed to the original theme."; fi; exit' 2
 	sleep 0.1
 done
