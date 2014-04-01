@@ -12,7 +12,9 @@ $ sudo mv grab_pix_color grab_luminance /usr/bin
 ```
 $ cp -r Dynamic $HOME/.local/share/themes
 ```
-- Run the script
+
+#Run
+
 ```
 $ bash dynamic-panel.sh
 ```
