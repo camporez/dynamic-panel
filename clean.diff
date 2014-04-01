@@ -1,0 +1,53 @@
+515c515
+<     background-color: black;
+---
+>     background-color: HEADER_COLOR;
+519a520,523
+> #panel:overview {
+>     background-color: black;
+> }
+> 
+546c550
+<     -panel-corner-radius: 6px;
+---
+>     -panel-corner-radius: 0px;
+549c553
+<     -panel-corner-border-color: transparent;
+---
+>     -panel-corner-border-color: black;
+554a559
+>     -panel-corner-radius: 6px;
+572c577
+<     color: rgba(0,0,0,0.5);
+---
+>     color: rgba(255, 255, 255, 0.5);
+594c599
+<     color: #ccc;
+---
+>     color: #888;
+617,618c622,623
+<     color: white;
+<     text-shadow: black 0px 2px 2px;
+---
+>     color: #333;
+>     text-shadow: white 0px 2px 2px;
+624,627c629,632
+<     border-image: url("panel-button-border.svg") 6 10 0 2;
+<     background-image: url("panel-button-highlight-wide.svg");
+<     color: white;
+<     text-shadow: black 0px 2px 2px;
+---
+>     border-image: url("panel-button-border-dark.svg") 6 10 0 2;
+>     background-image: url("panel-button-highlight-wide-dark.svg");
+>     color: #333;
+>     text-shadow: white 0px 2px 2px;
+633c638
+<     background-image: url("panel-button-highlight-narrow.svg");
+---
+>     background-image: url("panel-button-highlight-narrow-dark.svg");
+1154,1155c1159,1160
+<     border-image: url("panel-button-border.svg") 10 10 0 2;
+<     background-image: url("panel-button-highlight-wide.svg");
+---
+>     border-image: url("panel-button-border-dark.svg") 10 10 0 2;
+>     background-image: url("panel-button-highlight-wide-dark.svg");
