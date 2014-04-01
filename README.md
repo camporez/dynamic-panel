@@ -3,7 +3,7 @@
 - If this color changes, the script grabs the [luminance][2], using the program `grab_luminance`, generates and apply a new theme.
 
 #How it should work
-- The script receives a signal when the window in focus is maximized, grab the color and generates/applies a new theme.
+- The script receives a signal when the window in focus is maximized, grab the color and generates/applies the new theme.
 - If the window in focus is not maximized, the script applies the default theme.
 
 #Install
@@ -28,3 +28,4 @@ $ bash dynamic-panel.sh
 ```
 
 [1]: https://extensions.gnome.org/extension/19/user-themes/
+[2]: http://en.wikipedia.org/wiki/Luminance_(relative)#cite_ref-2
