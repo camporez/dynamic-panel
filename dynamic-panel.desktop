@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=dynamic-panel
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Dynamic Panel
+Comment=Start the Dynamic Panel
