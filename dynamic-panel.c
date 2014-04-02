@@ -25,14 +25,14 @@ char* grab_pix_color(int x, int y){
 }
 
 void run_program() {
-			char* string_color = grab_pix_color(300, 27);
-			char* program = "dynamic-panel.sh ";
-			char* command = (char*)malloc(sizeof(char)*(strlen(program) + strlen(string_color) + 1));
-			strcpy(command, program);
-			strcat(command, string_color);
-			system(command);
-			free(string_color);
-			free(command);
+	char* string_color = grab_pix_color(300, 27);
+	char* program = "dynamic-panel.sh ";
+	char* command = (char*)malloc(sizeof(char)*(strlen(program) + strlen(string_color) + 1));
+	strcpy(command, program);
+	strcat(command, string_color);
+	system(command);
+	free(string_color);
+	free(command);
 }
 
 static void
