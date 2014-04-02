@@ -6,7 +6,7 @@
 ```
 $ gcc $(pkg-config --cflags --libs libwnck-1.0) dynamic-panel.c -o dynamic-panel -lX11
 ```
-- Copy the script to a folder in your $PATH (e.g., /usr/bin)
+- Copy the script to a directory in your $PATH (e.g. /usr/bin)
 ```
 $ sudo cp dynamic-panel.sh /usr/bin
 ```
@@ -21,5 +21,14 @@ $ cp -r Dynamic $HOME/.local/share/themes
 $ ./dynamic-panel
 ```
 
+#Autostart the program
+- Copy the program to a directory in your $PATH (e.g. /usr/bin)
+```
+$ sudo cp dynamic-panel /usr/bin
+```
+- Copy the .desktop file to your autostart directory
+```
+$ cp dynamic-panel.desktop $HOME/.config/autostart
+```
+
 [1]: https://extensions.gnome.org/extension/19/user-themes/
-[2]: http://en.wikipedia.org/wiki/Luminance_(relative)#cite_ref-2
