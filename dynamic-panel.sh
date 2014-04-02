@@ -12,7 +12,7 @@ testCurrentColor() {
 
 changeTheme() {
 	rm -rf "$THEME"-*
-	cat "/home/ian/Projetos/massive-dynamic-panel/$2.diff" | sed "s/HEADER_COLOR/$1/g" > "/tmp/current.diff"
+	cat "$HOME/.local/share/dynamic-panel/$2.diff" | sed "s/HEADER_COLOR/$1/g" > "/tmp/current.diff"
 	cp -r "$THEME" "$THEME-$3"
 	patch -s "$THEME-$3/gnome-shell/gnome-shell.css" "/tmp/current.diff"
 	gsettings set org.gnome.shell.extensions.user-theme name "$( basename "$THEME-$3" )"
