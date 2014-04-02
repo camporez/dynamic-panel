@@ -563,7 +563,7 @@ StScrollBar StButton#vhandle:active {
 }
 
 #appMenu {
-    spinner-image: url("process-working.svg");
+    spinner-image: none;
     spacing: 4px;
 }
 
