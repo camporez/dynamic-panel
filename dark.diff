@@ -1,15 +1,36 @@
-515c515
-<     background-color: black;
----
->     background-color: HEADER_COLOR;
-519a520,523
-> #panel:overview {
->     background-color: black;
-> }
-> 
-546c550
-<     -panel-corner-radius: 6px;
----
->     -panel-corner-radius: 0px;
-554a559
->     -panel-corner-radius: 6px;
+--- /usr/share/themes/Dynamic/gnome-shell/gnome-shell.css	2014-04-02 18:44:33.204831035 -0300
++++ /usr/share/themes/Dynamic-Dark/gnome-shell/gnome-shell.css	2014-04-02 22:14:37.044392239 -0300
+@@ -512,11 +512,15 @@
+ /* Panel */
+ 
+ #panel {
+-    background-color: black;
++    background-color: HEADER_COLOR;
+     font-weight: bold;
+     height: 1.86em;
+ }
+ 
++#panel:overview {
++    background-color: black;
++}
++
+ #panel.unlock-screen,
+ #panel.login-screen {
+     background-color: transparent;
+@@ -543,7 +547,7 @@
+ }
+ 
+ .panel-corner {
+-    -panel-corner-radius: 6px;
++    -panel-corner-radius: 0px;
+     -panel-corner-background-color: black;
+     -panel-corner-border-width: 2px;
+     -panel-corner-border-color: transparent;
+@@ -552,6 +556,7 @@
+ .panel-corner:active,
+ .panel-corner:overview,
+ .panel-corner:focus {
++    -panel-corner-radius: 6px;
+     -panel-corner-border-color: rgba(255,255,255,0.8);
+ }
+ 
