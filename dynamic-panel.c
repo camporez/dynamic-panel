@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+int width;
 
 char* grab_pix_color(int x, int y){
 	XColor c;
@@ -24,8 +25,8 @@ char* grab_pix_color(int x, int y){
 }
 
 void run_program() {
-	char* string_color = grab_pix_color(300, 27);
 	usleep(300000);
+	char* string_color = grab_pix_color((width / 2), 27);
 	char* program = "dynamic-panel.sh ";
 	char* command = (char*)malloc(sizeof(char)*(strlen(program) + strlen(string_color) + 1));
 	strcpy(command, program);
@@ -83,6 +84,7 @@ main(gint argc, gchar *argv[])
 	gdk_init(&argc, &argv);
 
 	screen = wnck_screen_get(0);
+	width = wnck_screen_get_width(screen);
 	g_signal_connect(screen, "active-window-changed",
 					 G_CALLBACK(window_changed), NULL);
 	g_signal_connect(screen, "window-opened",
