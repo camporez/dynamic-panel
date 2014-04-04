@@ -13,23 +13,23 @@ INSTALL = /usr/bin/install
 INSTALLDATA = /usr/bin/install -m 664
 
 .c.o:
-	rm -f $@
-	$(CC) $(CFLAGS) -c $*.c
+	@rm -f $@
+	@$(CC) $(CFLAGS) -c $*.c
 
 all: $(PROGNAME)
 
 $(PROGNAME) : $(OBJS)
-	$(CC) $(CFLAGS) -o $(PROGNAME) $(OBJS) $(LIBS)
+	@$(CC) $(CFLAGS) -o $(PROGNAME) $(OBJS) $(LIBS)
 
 clean:
-	rm -f $(OBJS) $(PROGNAME)
+	@rm -f $(OBJS) $(PROGNAME)
 
 install:
-	test -d /usr/share/dynamic-panel || mkdir -m 755 /usr/share/dynamic-panel
-	test -d /usr/share/themes/Dynamic/gnome-shell || mkdir -m 755 -p /usr/share/themes/Dynamic/gnome-shell
-	$(INSTALL) $(PROGNAME) $(PROGNAME).sh /usr/bin
-	$(INSTALLDATA) *.diff /usr/share/dynamic-panel
-	$(INSTALLDATA) Dynamic/gnome-shell/* /usr/share/themes/Dynamic/gnome-shell
+	@test -d /usr/share/dynamic-panel || mkdir -m 755 /usr/share/dynamic-panel 2> /dev/null
+	@test -d /usr/share/themes/Dynamic/gnome-shell || mkdir -m 755 -p /usr/share/themes/Dynamic/gnome-shell 2> /dev/null
+	@$(INSTALL) $(PROGNAME) $(PROGNAME).sh /usr/bin 2> /dev/null
+	@$(INSTALLDATA) *.diff /usr/share/dynamic-panel 2> /dev/null
+	@$(INSTALLDATA) Dynamic/gnome-shell/* /usr/share/themes/Dynamic/gnome-shell 2> /dev/null
 
 uninstall:
-	rm -rf /usr/share/dynamic-panel /usr/share/themes/Dynamic /usr/bin/dynamic-panel /usr/bin/dynamic-panel.sh
+	@rm -rf /usr/share/dynamic-panel /usr/share/themes/Dynamic /usr/bin/dynamic-panel /usr/bin/dynamic-panel.sh 2> /dev/null
