@@ -50,6 +50,9 @@ static void window_changed(WnckScreen *screen) {
 			}
 		}
 	}
+	else {
+		system("dynamic-panel.sh --reset");
+	}
 }
 
 static void state_changed(WnckWindow *window) {
@@ -67,6 +70,9 @@ static void state_changed(WnckWindow *window) {
 				system("dynamic-panel.sh --reset");
 			}
 		}
+	}
+	else {
+		system("dynamic-panel.sh --reset");
 	}
 }
 
