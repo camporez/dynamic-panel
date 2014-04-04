@@ -24,8 +24,8 @@ char* grab_pix_color(int x, int y){
 }
 
 void run_program() {
-	system("sleep 0.3");
 	char* string_color = grab_pix_color(300, 27);
+	usleep(300000);
 	char* program = "dynamic-panel.sh ";
 	char* command = (char*)malloc(sizeof(char)*(strlen(program) + strlen(string_color) + 1));
 	strcpy(command, program);
