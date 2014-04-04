@@ -24,12 +24,12 @@ $(PROGNAME) : $(OBJS)
 clean:
 	rm -f $(OBJS) $(PROGNAME)
 
-install: all
+install:
 	test -d /usr/share/dynamic-panel || mkdir -m 755 /usr/share/dynamic-panel
 	test -d /usr/share/themes/Dynamic/gnome-shell || mkdir -m 755 -p /usr/share/themes/Dynamic/gnome-shell
 	$(INSTALL) $(PROGNAME) $(PROGNAME).sh /usr/bin
 	$(INSTALLDATA) *.diff /usr/share/dynamic-panel
 	$(INSTALLDATA) Dynamic/gnome-shell/* /usr/share/themes/Dynamic/gnome-shell
 
-uninstall: all
+uninstall:
 	rm -rf /usr/share/dynamic-panel /usr/share/themes/Dynamic /usr/bin/dynamic-panel /usr/bin/dynamic-panel.sh
