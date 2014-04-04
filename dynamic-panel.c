@@ -25,7 +25,7 @@ char* grab_pix_color(int x, int y) {
 }
 
 void run_program() {
-	usleep(300000);
+	usleep(300000);			/* Necessary until we solve issue #1 */
 	char* string_color = grab_pix_color((width / 2), 27);
 	char* program = "dynamic-panel.sh ";
 	char* command = (char*)malloc(sizeof(char)*(strlen(program) + strlen(string_color) + 1));
@@ -55,8 +55,7 @@ static void window_changed(WnckScreen *screen) {
 	}
 }
 
-static void state_changed(WnckWindow *window) {
-	WnckScreen *screen;
+static void state_changed(WnckWindow *window, WnckScreen *screen) {
 	screen = wnck_screen_get(0);
 	if (wnck_screen_get_active_window(screen)) {
 		if (wnck_window_is_fullscreen(window)) {
