@@ -1,5 +1,5 @@
 #include <gdk/gdk.h>
-#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE			/* Is it? 😱 */
 #include <libwnck/libwnck.h>
 #include <stdio.h>
 #include <string.h>
@@ -8,7 +8,7 @@
 #include <X11/Xutil.h>
 int width;
 
-char* grab_pix_color(int x, int y){
+char* grab_pix_color(int x, int y) {
 	XColor c;
 	Display *d = XOpenDisplay((char *) NULL);
 
@@ -36,15 +36,13 @@ void run_program() {
 	free(command);
 }
 
-static void
-window_changed(WnckScreen *screen)
-{
 	if (wnck_window_is_fullscreen(wnck_screen_get_active_window(screen))) {
 		system("dynamic-panel.sh --reset");
 	}
 	else {
 		if (wnck_window_is_maximized(wnck_screen_get_active_window(screen))) {
 			run_program();
+static void window_changed(WnckScreen *screen) {
 		}
 		else {
 			system("dynamic-panel.sh --reset");
@@ -52,15 +50,13 @@ window_changed(WnckScreen *screen)
 	}
 }
 
-static void
-state_changed(WnckWindow *window)
-{
 	if (wnck_window_is_fullscreen(window)) {
 		system("dynamic-panel.sh --reset");
 	}
 	else {
 		if (wnck_window_is_maximized(window)) {
 			run_program();
+static void state_changed(WnckWindow *window) {
 		}
 		else {
 			system("dynamic-panel.sh --reset");
@@ -68,16 +64,12 @@ state_changed(WnckWindow *window)
 	}
 }
 
-static void
-window_opened(WnckScreen *screen, WnckWindow *window)
-{
+static void window_opened(WnckScreen *screen, WnckWindow *window) {
 	g_signal_connect(window, "state-changed",
 					 G_CALLBACK(state_changed), NULL);
 }
 
-gint
-main(gint argc, gchar *argv[])
-{
+gint main(gint argc, gchar *argv[]) {
 	GMainLoop *loop;
 	WnckScreen *screen;
 
