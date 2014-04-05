@@ -25,7 +25,6 @@ char* grab_pix_color(int x, int y) {
 }
 
 void run_program() {
-	usleep(300000);			/* Necessary until we solve issue #1 */
 	char* string_color = grab_pix_color((width / 2), 27);
 	char* program = "dynamic-panel.sh ";
 	char* command = (char*)malloc(sizeof(char)*(strlen(program) + strlen(string_color) + 1));
@@ -80,8 +79,20 @@ static void window_opened(WnckScreen *screen, WnckWindow *window) {
 					 G_CALLBACK(state_changed), NULL);
 }
 
+gboolean testfunc(gpointer screen) {
+	if (wnck_screen_get_active_window(screen)) {
+		if (!wnck_window_is_fullscreen(wnck_screen_get_active_window(screen))) {
+			if (wnck_window_is_maximized(wnck_screen_get_active_window(screen))) {
+					run_program();
+			}
+		}
+	}
+	return TRUE;
+}
+
 gint main(gint argc, gchar *argv[]) {
 	GMainLoop *loop;
+	GMainLoop *color_loop = NULL;
 	WnckScreen *screen;
 
 	gdk_init(&argc, &argv);
@@ -92,6 +103,10 @@ gint main(gint argc, gchar *argv[]) {
 					 G_CALLBACK(window_changed), NULL);
 	g_signal_connect(screen, "window-opened",
 					 G_CALLBACK(window_opened), NULL);
+	
+	color_loop = g_main_loop_new (NULL, FALSE);
+	g_timeout_add_seconds(1, testfunc, screen);
+	g_main_loop_run(color_loop);
 
 	loop = g_main_loop_new(NULL, FALSE);
 	g_main_loop_run(loop);
