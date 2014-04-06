@@ -1,6 +1,7 @@
 #include <gdk/gdk.h>
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE			/* Is it? 😱 */
 #include <libwnck/libwnck.h>
+#undef  WNCK_I_KNOW_THIS_IS_UNSTABLE			//Fuck yeah, I know what I'm doing
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
