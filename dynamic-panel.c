@@ -59,11 +59,11 @@ static void window_changed(WnckScreen *screen) {
 static void state_changed(WnckWindow *window, WnckScreen *screen) {
 	screen = wnck_screen_get(0);
 	if (wnck_screen_get_active_window(screen)) {
-		if (wnck_window_is_fullscreen(window)) {
+		if (wnck_window_is_fullscreen(wnck_screen_get_active_window(screen))) {
 			system("dynamic-panel.sh --reset");
 		}
 		else {
-			if (wnck_window_is_maximized(window)) {
+			if (wnck_window_is_maximized(wnck_screen_get_active_window(screen))) {
 				run_program();
 			}
 			else {
