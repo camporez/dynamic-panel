@@ -1,7 +1,7 @@
 #include <gdk/gdk.h>
-#define WNCK_I_KNOW_THIS_IS_UNSTABLE			/* Is it? 😱 */
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE			// Is it? 😱 
 #include <libwnck/libwnck.h>
-#undef  WNCK_I_KNOW_THIS_IS_UNSTABLE			//Fuck yeah, I know what I'm doing
+#undef  WNCK_I_KNOW_THIS_IS_UNSTABLE			// Fuck yeah, I know what I'm doing!
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -26,7 +26,7 @@ char* grab_pix_color(int x, int y) {
 }
 
 void run_program() {
-	usleep(300000);			/* Necessary until we solve issue #1 */
+	usleep(300000);			// Necessary until we solve issue #1
 	char* string_color = grab_pix_color((width / 2), 27);
 	char* program = "dynamic-panel.sh ";
 	char* command = (char*)malloc(sizeof(char)*(strlen(program) + strlen(string_color) + 1));
