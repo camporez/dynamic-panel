@@ -42,6 +42,7 @@ static void window_changed(WnckScreen *screen) {
 		}
 		else {
 			if (wnck_window_is_maximized(wnck_screen_get_active_window(screen))) {
+				usleep(300000);
 				run_program();
 			}
 			else {
@@ -62,6 +63,7 @@ static void state_changed(WnckWindow *window, WnckScreen *screen) {
 		}
 		else {
 			if (wnck_window_is_maximized(window)) {
+				usleep(300000);
 				run_program();
 			}
 			else {
@@ -79,7 +81,7 @@ static void window_opened(WnckScreen *screen, WnckWindow *window) {
 					 G_CALLBACK(state_changed), NULL);
 }
 
-gboolean testfunc(gpointer screen) {
+gboolean colorloop(gpointer screen) {
 	if (wnck_screen_get_active_window(screen)) {
 		if (!wnck_window_is_fullscreen(wnck_screen_get_active_window(screen))) {
 			if (wnck_window_is_maximized(wnck_screen_get_active_window(screen))) {
@@ -103,12 +105,9 @@ gint main(gint argc, gchar *argv[]) {
 					 G_CALLBACK(window_changed), NULL);
 	g_signal_connect(screen, "window-opened",
 					 G_CALLBACK(window_opened), NULL);
-	
-	color_loop = g_main_loop_new (NULL, FALSE);
-	g_timeout_add_seconds(1, testfunc, screen);
-	g_main_loop_run(color_loop);
 
 	loop = g_main_loop_new(NULL, FALSE);
+	g_timeout_add_seconds(1, colorloop, screen);
 	g_main_loop_run(loop);
 	g_main_loop_unref(loop);
 
