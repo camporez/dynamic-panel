@@ -1,12 +1,13 @@
 #!/bin/bash
 
 testCurrentColor() {
-	if [ $2 -gt 179 ]; then
-		STYLE="clean"
-		changeTheme "$1" "$STYLE" "`echo "$1" | sed 's/[^0-9]//g'`"
-	else
-		STYLE="dark"
-		changeTheme "$1" "$STYLE" "`echo "$1" | sed 's/[^0-9]//g'`"
+	NAME=$( echo "$1" | sed 's/[^0-9]//g' )
+	if [ "`gsettings get org.gnome.shell.extensions.user-theme name`" != "'`basename $THEME$NAME`'" ]; then
+		if [ $2 -gt 179 ]; then
+			changeTheme "$1" "clean" "$NAME"
+		else
+			changeTheme "$1" "dark" "$NAME"
+		fi
 	fi
 }
 
